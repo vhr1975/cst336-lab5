@@ -33,13 +33,13 @@ app.get("/", function(req, res){
         console.log("image url: ", parseData['urls']['regular']);    
         var imageURL = parseData['urls']['regular'];    
 
-        res.render("index", {"imageURL": imageURL});
+        //res.render("index", {"imageURL": imageURL});
     
     }); // request
     
-        // res.render("index.html");
-  
-    // res.render("index.html");
+ 
+    res.render("index.html");
+
 });
 
 // allow the server to listen for any request
