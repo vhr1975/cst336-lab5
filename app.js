@@ -64,37 +64,52 @@ app.get("/search", function(req, res) {
     // keyword enterd by user
     var keyword = req.query.keyword;
 
-    var requestURL = "https://api.unsplash.com/photos/random?query=" + keyword + "&count=9&client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
+    var imageURLs = getRandomImages(keyword, 9);
 
-    request(requestURL, function(error, response, body) {
-        if (!error) {
-            var parseData = JSON.parse(body);
+    console.log("imageURLs:" + imageURLs);
 
-            var imageURLs = [];
+    res.render("results", {
+        "imageURLs": imageURLs
+    });
 
-            for (let i = 0; i < 9; i++) {
-
-                imageURLs.push(parseData[i].urls.regular);
-            } // for
-
-            //console.log(imageURLs);
-
-            res.render("results", {
-                "imageURLs": imageURLs
-            });
-
-        } // if
-        else {
-
-            res.render("results", {
-                "error": "Unable to access API"
-            });
-
-        } // else
-
-    }); // request
 
 }); // search route
+
+/*
+    Return random image URLs from an API
+    @param string keyword - search term
+    @param int imageCount - number of random images
+    @return array or image URLs
+*/ 
+function getRandomImages(keyword, imageCount){
+
+        var requestURL = "https://api.unsplash.com/photos/random?query=" + keyword + "&count=" + imageCount + "&client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
+    
+        request(requestURL, function(error, response, body) {
+            if (!error) {
+                var parseData = JSON.parse(body);
+    
+                var imageURLs = [];
+    
+                for (let i = 0; i < 9; i++) {
+    
+                    imageURLs.push(parseData[i].urls.regular);
+                } // for
+    
+                //console.log(imageURLs);
+
+                return imageURLs;    
+    
+            } // if
+            else {
+    
+                console.log("error", error);
+    
+            } // else
+    
+        }); // request
+
+}
 
 // allow the server to listen for any request
 // local server listener
