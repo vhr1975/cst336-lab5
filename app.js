@@ -18,9 +18,9 @@ app.get("/", function(req, res){
 
     console.log('in the app.get function');
     
-    console.log('settign the var to the web API: var requestURL = ', requestURL);
+    console.log('set the var to the web API: var requestURL = ', requestURL);
     var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
-    console.log('after setting the var to the web API');
+    console.log('after set the var to the web API: var requestURL = ', requestURL);
 
     request(requestURL, function (error, response, body) 
     {
