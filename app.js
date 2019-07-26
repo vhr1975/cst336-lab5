@@ -23,23 +23,7 @@ const mysql = require('mysql');
 // creating a “route”
 app.get("/", function(req, res){
 
-    // request a random image from API
-    // requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
-    
-    //request(requestURL, function (error, response, body) 
-    //{
-        //alert('error:', error);
-        //alert('statusCode:', response && response.statusCode);
-        //alert('body:', body);        
-        //var parseData = JSON.parse(body);    
-        // urls.regular
-        // var imageURL = parseData["urls"]["regular"];
-        // render index            
-        //res.render("index", {"imageURL": imageURL});
-    
-    //}); // request
-
-    res.render("index");
+    res.render("index.html");
 
 });
 
