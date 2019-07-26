@@ -18,7 +18,9 @@ app.get("/", function(req, res){
 
     console.log('in the app.get function');
     
-    //var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
+    console.log('calling the web API: var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";');
+    var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
+    console.log('after calling the web API');
 
     //alert("requestURL", requestURL);
 
