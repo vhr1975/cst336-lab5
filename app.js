@@ -59,7 +59,7 @@ app.get("/", function(req, res){
 // creating a “route”
 app.get("/search", function(req, res){
 
-    req.send("search results");
+    response.send("search results");
 
 }); // search route
 
