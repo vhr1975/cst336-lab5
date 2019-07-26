@@ -1,15 +1,17 @@
-<% include partials/header.ejs %>        
+<% include partials/header.ejs %>
 
-<h1>Search Result</h1>
-<form action="/search">
-        <input text="text" placeholder="Type Keyword" name="keyword"/><br>
-        <button>Search</button>
-</from>
+    <form action="/search">
+        <input text="text" placeholder="Type Keyword" name="keyword" />
+        <br>
+        <button>
+                Search
+        </button>
+    </from>
 
-<% imageUrls.forEach(function)(imageURL){ %>
+        <% imageURLs.forEach(function)(imageURL){ %>
 
-        <img src= '<%=imageURL%>' width='200' height='200'>
+            <img src='<%=imageURL%>' width='200' height='200'>
 
-<% }) %>
+        <% }) %>
 
 <% include partials/footer.ejs %>
