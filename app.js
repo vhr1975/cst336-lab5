@@ -38,7 +38,7 @@ app.get("/", function(req, res){
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         console.log('body:', body); // Print the API data
         */
-    
+       if (!error){
         var parseData = JSON.parse(body);    
         // console.log("image url: ", parseData['urls']['regular']);    
         var imageURL = parseData['urls']['regular'];    
@@ -46,7 +46,10 @@ app.get("/", function(req, res){
 
         res.render("index.html", {"imageURL": imageURL});
         // res.render("index", {"imageURL": imageURL});
-    
+       } // if
+       else{
+           res.render("index.html", {"error": "Unable to access API"});  
+        }
     }); // request
     
 });
