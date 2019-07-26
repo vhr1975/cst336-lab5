@@ -59,9 +59,9 @@ app.get("/", function(req, res){
 // creating a “route”
 app.get("/search", function(req, res){
 
-    console.log("search results");
+    req.send("search results");
 
-} // search route
+}); // search route
 
 // allow the server to listen for any request
 // local server listener
