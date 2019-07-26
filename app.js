@@ -11,7 +11,8 @@ const express = require("express");
 // exposes a top-level function
 const app = express();
 // render HTML
-app.engine('html', require('ejs').renderFile);
+//app.engine('html', require('ejs').renderFile);
+app.set('view engine','ejs');
 // add static files folder 
 app.use(express.static("public"));
 
@@ -23,7 +24,10 @@ const mysql = require('mysql');
 // creating a “route”
 app.get("/", function(req, res){
 
-    res.render("index.html");
+    var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape"
+
+    //res.render("index.html");
+    res.render("index");
 
 });
 
