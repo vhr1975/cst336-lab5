@@ -1,0 +1,13 @@
+html, body 
+{
+  background: #465d68;
+  background: -webkit-linear-gradient(#CBE2F6, rgb(32, 146, 245));
+  background:    -moz-linear-gradient(#CBE2F6, rgb(32, 146, 245));
+  background:         linear-gradient(#CBE2F6, rgb(32, 146, 245));
+}
+
+div
+{
+  text-align: left;
+}
+
