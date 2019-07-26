@@ -1,5 +1,12 @@
 <% include partials/header.ejs %>        
-        
+
+        <style>
+                body{
+    
+                    background-image: url('<%= imageURL %>')
+                }
+        </style>
+                
         <h1> Search </h1>        
         <form action="/search">
                 <input text="text" placeholder="Type Keyword" name="keyword"/><br>
