@@ -32,6 +32,7 @@ app.get("/", function(req, res){
         var parseData = JSON.parse(body);    
         console.log("image url: ", parseData['urls']['regular']);    
         var imageURL = parseData['urls']['regular'];    
+        console.log("*****imageURL*****: ", imageURL);    
 
         //res.render("index", {"imageURL": imageURL});
     
