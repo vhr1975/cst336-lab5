@@ -54,7 +54,14 @@ app.get("/", function(req, res){
         }
     }); // request
     
-});
+}); // root route
+
+// creating a “route”
+app.get("/search", function(req, res){
+
+    console.log("search results");
+
+} // search route
 
 // allow the server to listen for any request
 // local server listener
