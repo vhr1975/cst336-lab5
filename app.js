@@ -45,11 +45,12 @@ app.get("/", function(req, res){
         var imageURL = parseData['urls']['regular'];    
         // console.log("*****imageURL*****: ", imageURL);    
 
-        res.render("index.html", {"imageURL": imageURL});
-        // res.render("index", {"imageURL": imageURL});
+        // res.render("index.html", {"imageURL": imageURL});
+        res.render("index", {"imageURL": imageURL});
        } // if
        else{
-           res.render("index.html", {"error": "Unable to access API"});  
+           // res.render("index.html", {"error": "Unable to access API"});  
+           res.render("index", {"error": "Unable to access API"});  
         }
     }); // request
     
