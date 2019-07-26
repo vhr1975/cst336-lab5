@@ -1,10 +1,3 @@
-/**
- * Class: CST-336
- * Lab 5: Express, Embedded JavaScript (EJS), Request, and MySQl
- * Authors:
- * - Victor Ramirez
- **/
-
 // import Express library
 const express = require("express");
 // variable to access the methods
@@ -12,22 +5,13 @@ const express = require("express");
 const app = express();
 // render HTML
 app.engine('html', require('ejs').renderFile);
-// app.set('view engine','ejs'); not working
 // add static files folder 
 app.use(express.static("public"));
-
-// import request library
-const request = require('request');
-// import mysql library
-const mysql = require('mysql');
 
 // creating a “route”
 app.get("/", function(req, res){
 
-    //var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape"
-
-    //res.render("index.html");
-    res.render("index");
+    res.render("index.html");
 
 });
 
