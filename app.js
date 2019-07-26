@@ -60,7 +60,7 @@ app.get("/", function(req, res){
 app.get("/search", function(req, res){
 
     // res.send("hi");
-    res.render("index");
+    res.render("results");
 
 }); // search route
 
