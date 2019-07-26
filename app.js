@@ -11,8 +11,9 @@ const express = require("express");
 // exposes a top-level function
 const app = express();
 // render HTML
-app.engine('html', require('ejs').renderFile);
-// app.set('view engine', 'ejs');
+// app.engine('html', require('ejs').renderFile);
+// set view engine
+app.set('view engine', 'ejs');
 // add static files folder 
 app.use(express.static("public"));
 
