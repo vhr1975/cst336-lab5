@@ -64,14 +64,17 @@ app.get("/search", function(req, res) {
     // keyword enterd by user
     var keyword = req.query.keyword;
 
-    var imageURLs = getRandomImages(keyword, 9);
+    // var imageURLs = getRandomImages(keyword, 9);
 
-    console.log("imageURLs:" + imageURLs);
+    getRandomImages_cb(keyword, 9, function(imageURLs){
 
-    res.render("results", {
-        "imageURLs": imageURLs
-    });
+        console.log("imageURLs:" + imageURLs);
 
+        res.render("results", {
+            "imageURLs": imageURLs
+        });
+        
+    })
 
 }); // search route
 
@@ -81,7 +84,7 @@ app.get("/search", function(req, res) {
     @param int imageCount - number of random images
     @return array or image URLs
 */ 
-function getRandomImages(keyword, imageCount){
+function getRandomImages_cb(keyword, imageCount, callback){
 
         var requestURL = "https://api.unsplash.com/photos/random?query=" + keyword + "&count=" + imageCount + "&client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
     
@@ -98,7 +101,8 @@ function getRandomImages(keyword, imageCount){
     
                 //console.log(imageURLs);
 
-                return imageURLs;    
+                // return imageURLs;    
+                callback(imageURLs);
     
             } // if
             else {
