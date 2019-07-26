@@ -16,9 +16,12 @@ const mysql = require('mysql');
 // creating a “route”
 app.get("/", function(req, res){
 
-  /*
+  
     var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
-    
+
+    alert("requestURL", requestURL);
+
+/*    
     request(requestURL, function (error, response, body) 
     {
         
