@@ -6,6 +6,11 @@ html, body
   background:         linear-gradient(#CBE2F6, rgb(32, 146, 245));
 }
 
+body
+{
+  background-image: url('<%= imageURL %>')
+}
+
 div
 {
   text-align: left;
