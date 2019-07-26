@@ -1,11 +1,18 @@
+/**
+ * Class: CST-336
+ * Lab 5: Express, Embedded JavaScript (EJS), Request, and MySQl
+ * Authors:
+ * - Victor Ramirez
+ **/
+
 // import Express library
 const express = require("express");
 // variable to access the methods
 // exposes a top-level function
 const app = express();
 // render HTML
-// app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+// app.set('view engine', 'ejs');
 // add static files folder 
 app.use(express.static("public"));
 
@@ -17,32 +24,31 @@ const mysql = require('mysql');
 // creating a “route”
 app.get("/", function(req, res){
 
-    console.log('in the app.get function');
-    
+    /*
+    console.log('in the app.get function');    
     console.log('set the var to the web API: var requestURL = ', requestURL);
+    */
     var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
-    console.log('after set the var to the web API: var requestURL = ', requestURL);
+    // console.log('after set the var to the web API: var requestURL = ', requestURL);
 
     request(requestURL, function (error, response, body) 
-    {
-        
+    {        
+        /*
         console.log('error:', error); // Print the error if one occurred
         console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
         console.log('body:', body); // Print the API data
+        */
     
         var parseData = JSON.parse(body);    
-        console.log("image url: ", parseData['urls']['regular']);    
+        // console.log("image url: ", parseData['urls']['regular']);    
         var imageURL = parseData['urls']['regular'];    
-        console.log("*****imageURL*****: ", imageURL);    
+        // console.log("*****imageURL*****: ", imageURL);    
 
         // res.render("index.html", {"imageURL": imageURL});
-        res.render("index.html", {"imageURL": imageURL});
+        res.render("index", {"imageURL": imageURL});
     
     }); // request
     
-    // res.render("index", {"imageURL": imageURL});
-    // res.render("index.html");
-
 });
 
 // allow the server to listen for any request
