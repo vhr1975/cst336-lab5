@@ -59,7 +59,8 @@ app.get("/", function(req, res){
 // creating a “route”
 app.get("/search", function(req, res){
 
-    res.render("results");
+    res.send("hi");
+    // res.render("results");
 
 }); // search route
 
