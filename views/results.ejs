@@ -8,8 +8,9 @@
         </button>
     </from>
 
-        <% imageURLs.forEach(function(imageURL){ %>
-
+        <% imageURLs.forEach(function(imageURL, i){ %>
+        
+            <%- (i%3 == 0)?'<br>':'' %>
             <img src='<%=imageURL%>' width='200' height='200'>
 
         <% }) %>
