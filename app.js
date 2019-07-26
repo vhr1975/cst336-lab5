@@ -35,10 +35,11 @@ app.get("/", function(req, res){
     var imageURL = parseData["urls"]["regular"];
 
     // render index
-    res.render("index", {"imageURL": imageURL});
+    res.render(index);
+    //res.render("index", {"imageURL": imageURL});
 
     });
-    
+
 });
 
 // allow the server to listen for any request
