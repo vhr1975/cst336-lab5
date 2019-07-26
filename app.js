@@ -10,8 +10,9 @@ const express = require("express");
 // variable to access the methods
 // exposes a top-level function
 const app = express();
+// render HTML
+app.engine('html', require('ejs').renderFile);
 
-app.set('view engine', '@ejs');
 app.use(express.static('public'));
 
 // import request library
