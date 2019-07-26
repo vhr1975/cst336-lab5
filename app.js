@@ -34,11 +34,11 @@ app.get("/", function(req, res){
     var parseData = JSON.parse(body);    
     var imageURL = parseData["urls"]["regular"];
 
-    // render index
-    res.render(index);
+    // render index    
+    res.render("index.html");
     //res.render("index", {"imageURL": imageURL});
 
-    });
+    }); // request
 
 });
 
