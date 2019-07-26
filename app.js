@@ -36,7 +36,7 @@ app.get("/", function(req, res){
         console.log("*****imageURL*****: ", imageURL);    
 
         // res.render("index.html", {"imageURL": imageURL});
-        res.render("index", {"imageURL": imageURL});
+        res.render("index.html", {"imageURL": imageURL});
     
     }); // request
     
