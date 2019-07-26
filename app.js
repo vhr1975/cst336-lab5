@@ -30,7 +30,6 @@ app.get("/", function(req, res){
     console.log('set the var to the web API: var requestURL = ', requestURL);
     */
     var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
-    // console.log('after set the var to the web API: var requestURL = ', requestURL);
 
     request(requestURL, function (error, response, body) 
     {        
@@ -58,10 +57,37 @@ app.get("/", function(req, res){
 
 // creating a “route”
 app.get("/search", function(req, res){
-    
-    console.log(req.query.keyword);    
-    res.render("results");
 
+    // keyword enterd by user
+    var keyword = req.query.keyword;
+
+    var requestURL = "https://api.unsplash.com/photos/random?query="+keyword+"&count=9&client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
+
+    request(requestURL, function (error, response, body) 
+    {        
+       if (!error){
+        var parseData = JSON.parse(body);    
+        
+        var imageURLs = [];
+        
+        for(let i = 0; i < 9; i++){
+
+            imageURLs.push(parseData[i].urls.regular);    
+        } // for
+
+        console.log(imageURLs);
+
+        res.render("results", {"imageURLs": imageURLs});
+
+       } // if
+       else{
+        
+            res.render("results", {"error": "Unable to access API"});  
+        
+        } // else
+
+    }); // request
+    
 }); // search route
 
 // allow the server to listen for any request
