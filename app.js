@@ -4,7 +4,8 @@ const express = require("express");
 // exposes a top-level function
 const app = express();
 // render HTML
-app.engine('html', require('ejs').renderFile);
+// app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
 // add static files folder 
 app.use(express.static("public"));
 
@@ -34,7 +35,8 @@ app.get("/", function(req, res){
         var imageURL = parseData['urls']['regular'];    
         console.log("*****imageURL*****: ", imageURL);    
 
-        res.render("index.html", {"imageURL": imageURL});
+        // res.render("index.html", {"imageURL": imageURL});
+        res.render("index", {"imageURL": imageURL});
     
     }); // request
     
