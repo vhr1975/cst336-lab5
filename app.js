@@ -34,12 +34,12 @@ app.get("/", function(req, res){
         var imageURL = parseData['urls']['regular'];    
         console.log("*****imageURL*****: ", imageURL);    
 
-        //res.render("index", {"imageURL": imageURL});
+//        res.render("index", {"imageURL": imageURL});
     
     }); // request
     
- 
-    res.render("index.html");
+    res.render("index", {"imageURL": imageURL});
+    //res.render("index.html");
 
 });
 
