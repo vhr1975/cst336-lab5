@@ -59,9 +59,8 @@ app.get("/", function(req, res){
 // creating a “route”
 app.get("/search", function(req, res){
 
-    console.dir(reg);
-
-    // res.send("hi");
+    console.dir(req);
+    // console.log(req.query.keyword);    
     res.render("results");
 
 }); // search route
