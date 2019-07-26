@@ -1,54 +1,7 @@
-html, body, footer {
-    background: #119b05;
-    background: -webkit-linear-gradient(#64886c, #119b05);
-    background:    -moz-linear-gradient(#64886c, #119b05);
-    background:         linear-gradient(#64886c, #119b05);    
+html, body {
+    background: #000000;
+    background: -webkit-linear-gradient(#06061d, #000316);
+    background:    -moz-linear-gradient(#06061d, #000316);
+    background:         linear-gradient(#06061d, #000316);    
   }
-
-body 
-{
-    padding: 10px 5px;
-    text-align: center;
-}
-
-header, main, nav
-{
-    text-align: center;
-}
-
-main
-{
-    display: flex;
-    justify-content: center;
-}
-
-footer 
-{
-    display: flex;
-    text-align: left;        
-    font-size: 1em;
-}
-
-
-ul
-{
-    width: 500px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-h1
-{
-    font-family: Impact, Charcoal, sans-serif;
-    font-size: 4em;
-    margin-bottom: 0px;
-}
-
-p
-{
-    font-family: 'Amaranth', sans-serif;
-    font-size: 20px;
-    font-weight: 400; 
-    font-style: normal;
-    font-variant:normal;
-}
+ 
