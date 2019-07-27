@@ -29,14 +29,16 @@ $(document).ready(function () {
 
     }); // on click
     
-    function updateFavorite (imageURL){
+    function updateFavorite (imageURL)
+    {
 
-        $.ajax({
+        $.ajax
+        ({
             method: "get",
             url: "/api/updateFavorites",
             data: {"imageURL" : imageURL, "keyword" : "coming soon!"}
         }); // ajax
-        
+
     } // function
 
 }); // doc ready
