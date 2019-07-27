@@ -1,12 +1,20 @@
+/**
+ * Class: CST-336
+ * Lab 5: Express, Embedded JavaScript (EJS), Request, and MySQl
+ * Authors:
+ * - Victor Ramirez
+ **/
+// import lib
+const request = require('request');
+
+module.exports = 
+{
     /*
         Return random image URLs from an API
         @param string keyword - search term
         @param int imageCount - number of random images
         @return array or image URLs
     */ 
-module.exports = 
-{
-
     getRandomImages_cb: function (keyword, imageCount, callback)
     {
 
