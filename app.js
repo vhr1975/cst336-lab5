@@ -54,7 +54,8 @@ app.get("/search", async function(req, res) {
     console.log("imageURLs using promises:" + imageURLs);
 
     res.render("results", {
-        "imageURLs": imageURLs
+		"imageURLs": imageURLs,
+		"keyword":keyword
     });
 
     // call web API with callback
