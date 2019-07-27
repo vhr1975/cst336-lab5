@@ -37,7 +37,7 @@ app.get("/", async function(req, res) {
     var imageURLs = await tools.getRandomImages("", 1);
    
     res.render("index", {
-        "imageURLs": imageURLs
+        "imageURL": imageURLs
     });
 
 
