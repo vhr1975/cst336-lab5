@@ -83,13 +83,14 @@ app.get("/api/updateFavorites", function(req, res) {
         database: "heroku_5bfe18de006138f"
     })
 
-	var sql = "INSERT INTO favorites (imageURL, keyword) VALUES ('"+req.query.imageURL+"', 'cat')"
+	var sql = "INSERT INTO favorites (imageURL, keyword) VALUES (?, ?)";
+	var sqlParams = [req.query.imageURL, req.query.keyword];
 
     conn.connect(function(err) {
 
         if (err) throw err;
 
-        conn.query(sql, function(err, result) {
+        conn.query(sql, sqlParams, function(err, result) {
 
             if (err) throw err;
 
