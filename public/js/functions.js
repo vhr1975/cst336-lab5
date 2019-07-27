@@ -12,7 +12,7 @@ $(document).ready(function () {
 
 	$(".favoriteIcon").on("click", function () {
 
-        alert($(this).attr("src"));
+        alert($(this).prev().attr("src"));
         
 		if ($(this).attr("src") == "img/fav_off.png") {
 			$(this).attr("src", "img/fav_on.png");
