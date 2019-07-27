@@ -5,21 +5,18 @@
  * - Victor Ramirez
  **/
 
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $(".favoriteIcon").on("click", function()
-    {
+	$(".favoriteIcon").on("click", function () {
 
-        // alert("it works!");
-        if($(this).attr("src") == "img/fav_off.png") 
-        {
-            $(this).attr("src", "img/fav_on.png");            
-        }// if
-        else
-        {
-            $(this).attr("src", "img/fav_off.png");            
-        }// else        
+		// alert("it works!");
+		if ($(this).attr("src") == "img/fav_off.png") {
+			$(this).attr("src", "img/fav_on.png");
+		} // if
+		else {
+			$(this).attr("src", "img/fav_off.png");
+		} // else        
 
-    }); // on click
+	}); // on click
 
-});// doc ready
+}); // doc ready

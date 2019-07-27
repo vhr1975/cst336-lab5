@@ -7,90 +7,78 @@
 // import lib
 const request = require('request');
 
-module.exports = 
-{
-    /*
-        Return random image URLs from an API
-        @param string keyword - search term
-        @param int imageCount - number of random images
-        @return array or image URLs
-    */ 
-    getRandomImages_cb: function (keyword, imageCount, callback)
-    {
+module.exports = {
+	/*
+	    Return random image URLs from an API
+	    @param string keyword - search term
+	    @param int imageCount - number of random images
+	    @return array or image URLs
+	*/
+	getRandomImages_cb: function (keyword, imageCount, callback) {
 
-        var requestURL = "https://api.unsplash.com/photos/random?query=" + keyword + "&count=" + imageCount + "&client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
+		var requestURL = "https://api.unsplash.com/photos/random?query=" + keyword + "&count=" + imageCount + "&client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
 
-        request(requestURL, function(error, response, body) 
-        {
-            if (!error) 
-            {
-                var parseData = JSON.parse(body);
+		request(requestURL, function (error, response, body) {
+			if (!error) {
+				var parseData = JSON.parse(body);
 
-                var imageURLs = [];
+				var imageURLs = [];
 
-                for (let i = 0; i < 9; i++) 
-                {
+				for (let i = 0; i < 9; i++) {
 
-                    imageURLs.push(parseData[i].urls.regular);
-                } // for
+					imageURLs.push(parseData[i].urls.regular);
+				} // for
 
-                //console.log(imageURLs);
+				//console.log(imageURLs);
 
-                // return imageURLs;    
-                callback(imageURLs);
+				// return imageURLs;    
+				callback(imageURLs);
 
-            } // if
-            else 
-            {
-                console.log("error", error);
+			} // if
+			else {
+				console.log("error", error);
 
-            } // else
+			} // else
 
-        }); // request
+		}); // request
 
-    }, // function
+	}, // function
 
-    /*
-    Return random image URLs from an API
-    @param string keyword - search term
-    @param int imageCount - number of random images
-    @return array or image URLs
-    */ 
-   getRandomImages: function (keyword, imageCount)
-    {
+	/*
+	Return random image URLs from an API
+	@param string keyword - search term
+	@param int imageCount - number of random images
+	@return array or image URLs
+	*/
+	getRandomImages: function (keyword, imageCount) {
 
-        var requestURL = "https://api.unsplash.com/photos/random?query=" + keyword + "&count=" + imageCount + "&client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
+		var requestURL = "https://api.unsplash.com/photos/random?query=" + keyword + "&count=" + imageCount + "&client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
 
-        return new Promise ( function (resolve, reject)
-        {
-            request(requestURL, function(error, response, body)
-            {
-                if (!error) 
-                {
-                    var parseData = JSON.parse(body);
+		return new Promise(function (resolve, reject) {
+			request(requestURL, function (error, response, body) {
+				if (!error) {
+					var parseData = JSON.parse(body);
 
-                    var imageURLs = [];
+					var imageURLs = [];
 
-                    for (let i = 0; i < imageCount; i++) 
-                    {
-                        imageURLs.push(parseData[i].urls.regular);
-                    } // for
+					for (let i = 0; i < imageCount; i++) {
+						imageURLs.push(parseData[i].urls.regular);
+					} // for
 
-                    //console.log(imageURLs);
-                    // return imageURLs;    
-                    // resolve promise
-                    resolve(imageURLs);                
+					//console.log(imageURLs);
+					// return imageURLs;    
+					// resolve promise
+					resolve(imageURLs);
 
-                } // if
-                else 
-                {
-                    console.log("error", error);
-                } // else
+				} // if
+				else {
+					console.log("error", error);
+				} // else
 
-            }); // request
+			}); // request
 
-        }); // promise
+		}); // promise
 
-    }// function
+	} // function
 
 } // module
