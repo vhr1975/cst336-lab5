@@ -1,5 +1,3 @@
-import { get } from "https";
-
 /**
  * Class: CST-336
  * Lab 5: Express, Embedded JavaScript (EJS), Request, and MySQl
@@ -31,12 +29,13 @@ $(document).ready(function () {
     
     function updateFavorite (imageURL)
     {
-
         $.ajax
         ({
             method: "get",
             url: "/api/updateFavorites",
-            data: {"imageURL" : imageURL, "keyword" : "coming soon!"}
+            data: {"imageURL" : imageURL, 
+                    "keyword" : "coming soon!"
+                }
         }); // ajax
 
     } // function
