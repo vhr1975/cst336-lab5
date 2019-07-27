@@ -162,7 +162,7 @@ function getRandomImages_promise(keyword, imageCount){
 
         }); // request
 
-    }; // promise
+    }); // promise
 
 }
 
