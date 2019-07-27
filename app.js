@@ -72,6 +72,36 @@ app.get("/search", async function (req, res) {
 
 }); // search route
 
+// creating a “route”
+app.get("/api/updateFavorites", function (req, res) {
+
+	// create a connection to the database
+	var conn = mysql.createConnection({
+			host: "us-cdbr-iron-east-02.cleardb.net",
+			user: "be8e95da520e46",
+		password: "301442a3",
+		database: "heroku_5bfe18de006138f"
+	})
+
+	var sql = "INSERT INTO favorites (imageURL, keyword) VALUES ('cat.png', 'cat')"
+
+	conn.connect(function(err) { 
+
+		if(err) throw err;
+
+		conn.query(sql, function(err, result){
+
+			if(err) throw err;
+
+		}); // query
+
+	});// connect
+
+	res.send("it works");
+
+}
+
+
 // allow the server to listen for any request
 // local server listener
 // app.listen("8081", "127.0.0.1", function() {
