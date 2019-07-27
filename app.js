@@ -25,7 +25,7 @@ const mysql = require('mysql');
 const tools = require('./tools');
 
 // creating a “route”
-app.get("/", function(req, res) {
+app.get("/", async function(req, res) {
 
     /*
     console.log('in the app.get function');    
@@ -33,30 +33,13 @@ app.get("/", function(req, res) {
     */
     var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
 
-    request(requestURL, function(error, response, body) {
-        /*
-        console.log('error:', error); // Print the error if one occurred
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-        console.log('body:', body); // Print the API data
-        */
-        if (!error) {
-            var parseData = JSON.parse(body);
-            // console.log("image url: ", parseData['urls']['regular']);    
-            var imageURL = parseData['urls']['regular'];
-            // console.log("*****imageURL*****: ", imageURL);    
+    // call web API with promise
+    var imageURLs = await tools.getRandomImages("", 1);
+   
+    res.render("index", {
+        "imageURLs": imageURLs
+    });
 
-            // res.render("index.html", {"imageURL": imageURL});
-            res.render("index", {
-                "imageURL": imageURL
-            });
-        } // if
-        else {
-            // res.render("index.html", {"error": "Unable to access API"});  
-            res.render("index", {
-                "error": "Unable to access API"
-            });
-        }
-    }); // request
 
 }); // root route
 
