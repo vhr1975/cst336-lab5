@@ -59,13 +59,21 @@ app.get("/", function(req, res) {
 }); // root route
 
 // creating a “route”
-app.get("/search", function(req, res) {
+app.get("/search", async function(req, res) {
 
     // keyword enterd by user
     var keyword = req.query.keyword;
 
-    // var imageURLs = getRandomImages(keyword, 9);
+    // call web API with promise
+    var imageURLs = await getRandomImages_promise(keyword, 9);
+    console.log("imageURLs using promises:" + imageURLs);
+    
+    res.render("results", {
+        "imageURLs": imageURLs
+    });
 
+    // call web API with callback
+    /*
     getRandomImages_cb(keyword, 9, function(imageURLs){
 
         console.log("imageURLs:" + imageURLs);
@@ -75,6 +83,7 @@ app.get("/search", function(req, res) {
         });
         
     })
+    */
 
 }); // search route
 
@@ -112,6 +121,48 @@ function getRandomImages_cb(keyword, imageCount, callback){
             } // else
     
         }); // request
+
+}
+
+/*
+    Return random image URLs from an API
+    @param string keyword - search term
+    @param int imageCount - number of random images
+    @return array or image URLs
+*/ 
+function getRandomImages_promise(keyword, imageCount){
+
+    var requestURL = "https://api.unsplash.com/photos/random?query=" + keyword + "&count=" + imageCount + "&client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
+
+    return new Promise ( function (resolve, reject)
+    {
+        request(requestURL, function(error, response, body) {
+            if (!error) {
+                var parseData = JSON.parse(body);
+
+                var imageURLs = [];
+
+                for (let i = 0; i < 9; i++) {
+
+                    imageURLs.push(parseData[i].urls.regular);
+                } // for
+
+                //console.log(imageURLs);
+
+                // return imageURLs;    
+                // resolve promise
+                resolve(imageURLs);                
+
+            } // if
+            else {
+
+                console.log("error", error);
+
+            } // else
+
+        }); // request
+
+    }; // promise
 
 }
 
