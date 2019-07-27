@@ -75,6 +75,7 @@ app.get("/search", async function (req, res) {
 // creating a “route”
 app.get("/api/updateFavorites", function (req, res) {
 
+	/*
 	// create a connection to the database
 	var conn = mysql.createConnection({
 			host: "us-cdbr-iron-east-02.cleardb.net",
@@ -96,7 +97,7 @@ app.get("/api/updateFavorites", function (req, res) {
 		}); // query
 
 	});// connect
-
+	*/
 	res.send("it works");
 
 }
