@@ -73,7 +73,8 @@ app.get("/search", async function (req, res) {
 }); // search route
 
 // creating a “route”
-app.get("/api/updateFavorites", function (req, res) {
+app.get("/api/updateFavorites", function (req, res) 
+{
 
 	/*
 	// create a connection to the database
@@ -99,8 +100,7 @@ app.get("/api/updateFavorites", function (req, res) {
 	});// connect
 	*/
 	res.send("it works");
-
-}
+});
 
 
 // allow the server to listen for any request
