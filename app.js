@@ -49,7 +49,7 @@ app.get("/search", async function (req, res) {
 	// keyword enterd by user
 	var keyword = req.query.keyword;
 
-	// call web API with promise
+	// call web API with promise, keyword and image count
 	var imageURLs = await tools.getRandomImages(keyword, 9);
 	console.log("imageURLs using Promises:" + imageURLs);
 

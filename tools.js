@@ -24,7 +24,7 @@ module.exports = {
 
 				var imageURLs = [];
 
-				for (let i = 0; i < 9; i++) {
+				for (let i = 0; i < imageCount; i++) {
 
 					imageURLs.push(parseData[i].urls.regular);
 				} // for
