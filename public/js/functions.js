@@ -20,24 +20,25 @@ $(document).ready(function() {
 
         if ($(this).attr("src") == "img/fav_off.png") {
             $(this).attr("src", "img/fav_on.png");
-            updateFavorite(imageURL);
+            updateFavorite(add, imageURL); // insert new record
         } // if
         else {
             $(this).attr("src", "img/fav_off.png");
-
+            updateFavorite(delete, imageURL); // delete a record
         } // else        
 
     }); // on click
     /*
         function to update the db
     */
-    function updateFavorite(imageURL) {
+    function updateFavorite(action, imageURL) {
         $.ajax({
             method: "get",
             url: "/api/updateFavorites",
             data: {
                 "imageURL": imageURL,                
-                "keyword": $("#keyword").val()
+                "keyword" : $("#keyword").val(), 
+                "action" : action
             } // data
 
         }); // ajax

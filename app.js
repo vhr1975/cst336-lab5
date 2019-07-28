@@ -25,87 +25,98 @@ const mysql = require('mysql');
 const tools = require('./tools');
 
 // creating a “route”
-app.get("/", async function(req, res) {
+app.get("/", async function (req, res) {
 
-    /*
-    console.log('in the app.get function');    
-    console.log('set the var to the web API: var requestURL = ', requestURL);
-    */
-    var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
+	/*
+	console.log('in the app.get function');    
+	console.log('set the var to the web API: var requestURL = ', requestURL);
+	*/
+	var requestURL = "https://api.unsplash.com/photos/random?client_id=87deea8bf0db05f15dc94780a1b0353a53f4da628290e91042928a8bfded2050&orientation=landscape";
 
-    // call web API with promise
-    var imageURLs = await tools.getRandomImages("", 1);
+	// call web API with promise
+	var imageURLs = await tools.getRandomImages("", 1);
 
-    res.render("index", {
-        "imageURL": imageURLs
-    });
+	res.render("index", {
+		"imageURL": imageURLs
+	});
 
 
 }); // root route
 
 // creating a “route”
-app.get("/search", async function(req, res) {
+app.get("/search", async function (req, res) {
 
-    // keyword enterd by user
-    var keyword = req.query.keyword;
+	// keyword enterd by user
+	var keyword = req.query.keyword;
 
-    // call web API with promise
-    var imageURLs = await tools.getRandomImages(keyword, 9);
-    console.log("imageURLs using Promises:" + imageURLs);
+	// call web API with promise
+	var imageURLs = await tools.getRandomImages(keyword, 9);
+	console.log("imageURLs using Promises:" + imageURLs);
 
-    res.render("results", {"imageURLs": imageURLs, "keyword":keyword});
+	res.render("results", {
+		"imageURLs": imageURLs,
+		"keyword": keyword
+	});
 
-    // call web API with callback
-    /*
-    getRandomImages_cb(keyword, 9, function(imageURLs){
+	// call web API with callback
+	/*
+	getRandomImages_cb(keyword, 9, function(imageURLs){
 
-        console.log("imageURLs:" + imageURLs);
+	    console.log("imageURLs:" + imageURLs);
 
-        res.render("results", {
-            "imageURLs": imageURLs
-        });
-        
-    })
-    */
+	    res.render("results", {
+	        "imageURLs": imageURLs
+	    });
+	    
+	})
+	*/
 
 }); // search route
 
 // creating a “route”
-app.get("/api/updateFavorites", function(req, res) {
+app.get("/api/updateFavorites", function (req, res) {
 
-    // create a connection to the database
-    var conn = mysql.createConnection({
-        host: "us-cdbr-iron-east-02.cleardb.net",
-        user: "be8e95da520e46",
-        password: "301442a3",
-        database: "heroku_5bfe18de006138f"
-    })
+	// create a connection to the database
+	var conn = mysql.createConnection({
+		host: "us-cdbr-iron-east-02.cleardb.net",
+		user: "be8e95da520e46",
+		password: "301442a3",
+		database: "heroku_5bfe18de006138f"
+	})
 
-	var sql = "INSERT INTO favorites (imageURL, keyword) VALUES (?, ?)";
-	var sqlParams = [req.query.imageURL, req.query.keyword];
+	var sql;
+	var sqlParams;
 
-    conn.connect(function(err) {
+	// logic to determine if we need to add to the db or delete from the db
+	if (req.query.action == "add") {
+		sql = "INSERT INTO favorites (imageURL, keyword) VALUES (?, ?)";
+		sqlParams = [req.query.imageURL, req.query.keyword];
+	} else {
+		sql = "DELETE FROM favorites WHERE imageURL = ?";
+		sqlParams = [req.query.imageURL];
+	}
 
-        if (err) throw err;
+	conn.connect(function (err) {
 
-        conn.query(sql, sqlParams, function(err, result) {
+		if (err) throw err;
 
-            if (err) throw err;
+		conn.query(sql, sqlParams, function (err, result) {
 
-        }); // query
+			if (err) throw err;
 
-    }); // connect
+		}); // query
 
-    res.send("it works");
+	}); // connect
+
+	res.send("it works");
 });
-
 
 // allow the server to listen for any request
 // local server listener
 // app.listen("8081", "127.0.0.1", function() {
 // heroku server listner
-app.listen(process.env.PORT, process.env.IP, function() {
+app.listen(process.env.PORT, process.env.IP, function () {
 
-    console.log("Express Server is Running...")
+	console.log("Express Server is Running...")
 
 });
