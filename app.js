@@ -109,7 +109,8 @@ app.get("/api/updateFavorites", function (req, res) {
 // creating a “route”
 app.get("/displayKeyword", function (req, res)
 {
-
+    res.send("in /displayword");
+    /*
     // call tools function to create a connection to the database
     var conn = tools.createConnection();	
     var sql = "SELECT DISTINCT keyword FROM heroku_5bfe18de006138f.favorites ORDER BY keyword";
@@ -133,6 +134,7 @@ app.get("/displayKeyword", function (req, res)
         }); // query
         
     }) // connect
+    */
 
 }); // displayKeyword route
 
