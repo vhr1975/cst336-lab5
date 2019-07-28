@@ -118,21 +118,21 @@ app.get("/displayKeyword", function (req, res)
     conn.connect( function(err){
 
         if (err) throw err;
-/*
+
         conn.query(sql, function (err, result) {
 
             if (err) throw err;
+
+            console.log(result);
+            alert(result);
 
             res.render("favorites", 
             {
                 "rows": results
             
             }); // render
-
-            console.log(result);
-
         }); // query
-  */      
+
     }) // connect
     
 
