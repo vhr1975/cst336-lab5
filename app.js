@@ -110,7 +110,7 @@ app.get("/api/updateFavorites", function (req, res) {
 app.get("/displayKeyword", function (req, res)
 {
     res.send("in /displayword");
-    /*
+    
     // call tools function to create a connection to the database
     var conn = tools.createConnection();	
     var sql = "SELECT DISTINCT keyword FROM heroku_5bfe18de006138f.favorites ORDER BY keyword";
@@ -118,7 +118,7 @@ app.get("/displayKeyword", function (req, res)
     conn.connect( function(err){
 
         if (err) throw err;
-
+/*
         conn.query(sql, function (err, result) {
 
             if (err) throw err;
@@ -132,9 +132,9 @@ app.get("/displayKeyword", function (req, res)
             console.log(result);
 
         }); // query
-        
+  */      
     }) // connect
-    */
+    
 
 }); // displayKeyword route
 
