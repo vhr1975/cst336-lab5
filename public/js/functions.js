@@ -36,9 +36,8 @@ $(document).ready(function() {
             method: "get",
             url: "/api/updateFavorites",
             data: {
-                "imageURL": imageURL,
-                "keyword" : "coming soon!"
-                //"keyword": $("keyword").val()
+                "imageURL": imageURL,                
+                "keyword": $("#keyword").val()
             } // data
 
         }); // ajax
