@@ -122,13 +122,17 @@ app.get("/displayKeyword", function (req, res)
 
             if (err) throw err;
 
-            res.render("favorites", {
+            res.render("favorites", 
+            {
                 "rows": results
-            });
+            
+            }); // render
 
             console.log(result);
 
-		}); // query
+        }); // query
+        
+    }) // connect
 
 }); // displayKeyword route
 
