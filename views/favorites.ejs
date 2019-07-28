@@ -1,0 +1,14 @@
+<% include partials/header.ejs %>        
+
+<a href="/"> Back to Search </a>
+<h1>
+    Favorites Pics
+</h1>
+
+<% rows.forEach(function(row) { %>
+
+    <a> <% row['keyword'] %> </a>
+
+<% }) %>
+
+<% include partials/footer.ejs %>
