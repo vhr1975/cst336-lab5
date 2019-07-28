@@ -123,9 +123,6 @@ app.get("/displayKeyword", function (req, res)
 
             if (err) throw err;
 
-            console.log(result);
-            alert(result);
-
             res.render("favorites", 
             {
                 "rows": results
