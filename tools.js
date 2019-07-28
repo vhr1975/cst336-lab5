@@ -6,7 +6,7 @@
  **/
 // import lib
 const request = require('request');
-const request = require('mysql');
+const mysql = require('mysql');
 
 module.exports = {
 	/*
