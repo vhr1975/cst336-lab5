@@ -123,13 +123,13 @@ app.get("/displayKeyword", function (req, res)
 
             if (err) throw err;
 
-            console.log(request);
-
             res.render("favorites", 
             {
                 "rows": result
             
             }); // render
+
+            console.log(request);
 
         }); // query
 
