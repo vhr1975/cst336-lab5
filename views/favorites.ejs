@@ -5,9 +5,11 @@
     Favorites Pics
 </h1>
 
+    Display the keywords:
+
     <% rows.forEach(function(row) { %>
 
-        <a> <% row['keyword'] %> </a>
+        <a> <%= row['keyword'] %> </a>
 
     <% }) %>
 
