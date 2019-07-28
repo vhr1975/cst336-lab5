@@ -20,11 +20,11 @@ $(document).ready(function() {
 
         if ($(this).attr("src") == "img/fav_off.png") {
             $(this).attr("src", "img/fav_on.png");
-            updateFavorite(add, imageURL); // insert new record
+            updateFavorite("add", imageURL); // insert new record
         } // if
         else {
             $(this).attr("src", "img/fav_off.png");
-            updateFavorite(delete, imageURL); // delete a record
+            updateFavorite("delete", imageURL); // delete a record
         } // else        
 
     }); // on click
