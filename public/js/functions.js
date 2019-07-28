@@ -5,37 +5,36 @@
  * - Victor Ramirez
  **/
 
- /*
-    function to toggle the fav icon on and off
- */
-$(document).ready(function () {
+/*
+   function to toggle the fav icon on and off
+*/
+$(document).ready(function() {
 
-	$(".favoriteIcon").on("click", function () {
+    $(".favoriteIcon").on("click", function() {
 
         // alert($(this).prev().attr("src"));
 
         var imageURL = $(this).prev().attr("src");
-        
-		if ($(this).attr("src") == "img/fav_off.png") {
+
+        if ($(this).attr("src") == "img/fav_off.png") {
             $(this).attr("src", "img/fav_on.png");
-            updateFavorite(imageURL);            
-		} // if
-		else {
+            updateFavorite(imageURL);
+        } // if
+        else {
             $(this).attr("src", "img/fav_off.png");
-            
-		} // else        
+
+        } // else        
 
     }); // on click
-    
-    function updateFavorite (imageURL)
-    {
-        $.ajax
-        ({
+
+    function updateFavorite(imageURL) {
+        $.ajax({
             method: "get",
             url: "/api/updateFavorites",
-            data: {"imageURL" : imageURL, 
-                    "keyword" : "coming soon!"
-                }
+            data: {
+                "imageURL": imageURL,
+                "keyword": $('keyword').val()     
+            }
         }); // ajax
 
     } // function
