@@ -112,7 +112,7 @@ app.get("/displayKeyword", function (req, res)
 
     // call tools function to create a connection to the database
     var conn = tools.createConnection();	
-    var saql = "SELECT DISTINCT keyword FROM heroku_5bfe18de006138f.favorites ORDER BY keyword";
+    var sql = "SELECT DISTINCT keyword FROM heroku_5bfe18de006138f.favorites ORDER BY keyword";
     
     conn.connect( function(err){
 
@@ -125,6 +125,8 @@ app.get("/displayKeyword", function (req, res)
             res.render("favorites", {
                 "rows": results
             });
+
+            console.log(result);
 
 		}); // query
 
