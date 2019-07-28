@@ -118,7 +118,7 @@ app.get("/displayKeyword", function (req, res)
 
         if (err) throw err;
 
-        conn.query(sql, sqlParams, function (err, result) {
+        conn.query(sql, function (err, result) {
 
             if (err) throw err;
 
