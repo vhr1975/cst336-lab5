@@ -109,7 +109,7 @@ app.get("/api/updateFavorites", function (req, res) {
 // creating a “route”
 app.get("/displayKeyword", function (req, res)
 {
-    res.send("in /displayword");
+    // res.send("in /displayword");
     
     // call tools function to create a connection to the database
     var conn = tools.createConnection();	
@@ -125,9 +125,10 @@ app.get("/displayKeyword", function (req, res)
 
             res.render("favorites", 
             {
-                "rows": results
+                "rows": result
             
             }); // render
+            
         }); // query
 
     }) // connect
