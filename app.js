@@ -76,14 +76,8 @@ app.get("/search", async function (req, res) {
 // creating a “route”
 app.get("/api/updateFavorites", function (req, res) {
 
-	// create a connection to the database
-	var conn = mysql.createConnection({
-		host: "us-cdbr-iron-east-02.cleardb.net",
-		user: "be8e95da520e46",
-		password: "301442a3",
-		database: "heroku_5bfe18de006138f"
-	})
-
+    // call tools function to create a connection to the database
+    var conn = tools.createConnection();	
 	var sql;
 	var sqlParams;
 
@@ -108,8 +102,33 @@ app.get("/api/updateFavorites", function (req, res) {
 
 	}); // connect
 
-	res.send("it works");
-});
+    res.send("it works");
+    
+}); // api route
+
+// creating a “route”
+app.get("/displayKeyword", function (req, res)
+{
+
+    // call tools function to create a connection to the database
+    var conn = tools.createConnection();	
+    var saql = "SELECT DISTINCT keyword FROM heroku_5bfe18de006138f.favorites ORDER BY keyword";
+    
+    conn.connect( function(err){
+
+        if (err) throw err;
+
+        conn.query(sql, sqlParams, function (err, result) {
+
+            if (err) throw err;
+
+            res.render("favorites", {
+                "rows": results
+            });
+
+		}); // query
+
+}); // displayKeyword route
 
 // allow the server to listen for any request
 // local server listener

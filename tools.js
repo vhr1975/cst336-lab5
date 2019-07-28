@@ -79,6 +79,24 @@ module.exports = {
 
 		}); // promise
 
+	},  // function
+
+	/*
+		creates a database connection
+		@return db connection
+	*/
+	createConnection: function(){
+
+		// create a connection to the database
+		var conn = mysql.createConnection({
+			host: "us-cdbr-iron-east-02.cleardb.net",
+			user: "be8e95da520e46",
+			password: "301442a3",
+			database: "heroku_5bfe18de006138f"
+		});
+
+		return conn;
+
 	} // function
 
 } // module
