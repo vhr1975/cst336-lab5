@@ -51,12 +51,9 @@ app.get("/search", async function(req, res) {
 
     // call web API with promise
     var imageURLs = await tools.getRandomImages(keyword, 9);
-    console.log("imageURLs using promises:" + imageURLs);
+    console.log("imageURLs using Promises:" + imageURLs);
 
-    res.render("results", {
-		"imageURLs": imageURLs,
-		"keyword":keyword
-    });
+    res.render("results", {"imageURLs": imageURLs, "keyword":keyword});
 
     // call web API with callback
     /*
