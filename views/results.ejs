@@ -11,7 +11,7 @@
         <% imageURLs.forEach(function(imageURL, i){ %>
         
             <%- (i%3 == 0)?'<br>':'' %>
-            <img src='<%=imageURL%>' width='200' height='200'>
+            <img class="image" src='<%=imageURL%>' width='200' height='200'>
             <img class='favoriteIcon' src='img/fav_off.png' width='20'>
 
         <% }) %>
