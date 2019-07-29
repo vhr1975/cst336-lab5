@@ -47,7 +47,7 @@ $(document).ready(function() {
 
                 rows.forEach(function (row){
 
-                    $('#favorites').append(row.imageURL + '<br>');
+                    $('#favorites').append("<img src='" + row.imageURL + "' width='200' height='200' <br>");
                     
                 });
 
