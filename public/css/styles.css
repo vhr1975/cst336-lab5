@@ -28,7 +28,7 @@ h1{
 
 }
 
-favLink{
+#favLink, #searchLink{
 
     background-color: rgba(250, 250, 250, 0.75);
     color: #CE4108;
