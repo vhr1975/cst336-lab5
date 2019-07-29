@@ -123,8 +123,6 @@ app.get("/displayKeyword", function (req, res)
 
             if (err) throw err;
 
-            console.log(request);
-
             res.render("favorites", 
             {
                 "rows": result
@@ -135,8 +133,31 @@ app.get("/displayKeyword", function (req, res)
 
     }) // connect
     
-
 }); // displayKeyword route
+
+// creating a “route”
+app.get("/displayFavorites", function (req, res)
+{
+	// call tools function to create a connection to the database
+    var conn = tools.createConnection();	
+	var sql = "SELECT imageURL FROM heroku_5bfe18de006138f.favorites WHERE keyword = ?";
+	var sqlParams = [req.query.keyword];
+
+	conn.connect( function(err){
+
+        if (err) throw err;
+
+        conn.query(sql, sqlParams, function (err, results) {
+
+			if (err) throw err;
+			
+            res.send(results)
+
+        }); // query
+
+    }) // connect
+
+}); // displayFavorites
 
 // allow the server to listen for any request
 // local server listener
