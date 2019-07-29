@@ -56,7 +56,17 @@ $(document).ready(function() {
                 "imageURL": imageURL,                
                 "keyword" : $("#keyword").val(), 
                 "action" : action
-            } // data
+            }, // data
+            success: function(rows, status) {
+
+                row.forEach(function (row){
+
+                    $('#favorites').append(row.imageURL + '<br>');
+                    
+                });
+
+            }
+
 
         }); // ajax
 
