@@ -6,7 +6,7 @@
  **/
 
  /*
-    functions to execute once the document is loaded
+    AJax functions to execute once the document is loaded
 */
 $(document).ready(function() {
     /*
@@ -27,11 +27,28 @@ $(document).ready(function() {
             updateFavorite("delete", imageURL); // delete a record
         } // else        
 
-    }); // on click
+    }); // on favorite icon click
+
+    $(".keywordList").on("click", function() {
+
+        alert($(this).text());
+
+        $.ajax({
+            method: "get",
+            url: "/api/displayFavorites",
+            data: {
+                "keyword" : $(this).text(),
+            } // data
+
+        }); // ajax
+
+    }); // on keyword click
+
     /*
         function to update the db
     */
     function updateFavorite(action, imageURL) {
+
         $.ajax({
             method: "get",
             url: "/api/updateFavorites",

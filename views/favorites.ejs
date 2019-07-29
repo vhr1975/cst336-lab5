@@ -5,12 +5,16 @@
     Favorites Pics
 </h1>
 
-    Display the keywords:
+    Favorite keywords:
 
     <% rows.forEach(function(row) { %>
 
-        <a> <%= row['keyword'] %> </a>
+        <a class="keywordLink"> <%= row['keyword'] %> </a>
 
     <% }) %>
+
+    <hr>    
+    <div id ="favorites">
+    </div>
 
 <% include partials/footer.ejs %>
