@@ -136,7 +136,7 @@ app.get("/displayKeyword", function (req, res)
 }); // displayKeyword route
 
 // creating a “route”
-app.get("/displayFavorites", function (req, res)
+app.get("/api/displayFavorites", function (req, res)
 {
 	// call tools function to create a connection to the database
     var conn = tools.createConnection();	
@@ -155,7 +155,8 @@ app.get("/displayFavorites", function (req, res)
 
         }); // query
 
-    }) // connect 
+    }) // connect
+    
     
 
 }); // displayFavorites

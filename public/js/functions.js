@@ -31,7 +31,7 @@ $(document).ready(function() {
 
     $(".keywordLink").on("click", function() {
 
-        alert($(this).text().trim());
+        // alert($(this).text().trim());
 
         $.ajax({
             method: "get",
