@@ -31,13 +31,13 @@ $(document).ready(function() {
 
     $(".keywordLink").on("click", function() {
 
-        alert( $(this).text());
+        alert($(this).text().trim());
 
         $.ajax({
             method: "get",
             url: "/api/displayFavorites",
             data: {
-                "keyword" : $(this).text().trim,
+                "keyword" : $(this).text().trim(),
             } // data
 
         }); // ajax
