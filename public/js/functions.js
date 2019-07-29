@@ -38,7 +38,17 @@ $(document).ready(function() {
             url: "/api/displayFavorites",
             data: {
                 "keyword" : $(this).text().trim(),
-            } // data
+            }, // data
+            
+            success: function(rows, status) {
+
+                rows.forEach(function (row){
+
+                    $('#favorites').append(row.imageURL + '<br>');
+                    
+                });
+
+            }
 
         }); // ajax
 
@@ -56,17 +66,7 @@ $(document).ready(function() {
                 "imageURL": imageURL,                
                 "keyword" : $("#keyword").val(), 
                 "action" : action
-            }, // data
-            success: function(rows, status) {
-
-                rows.forEach(function (row){
-
-                    $('#favorites').append(row.imageURL + '<br>');
-                    
-                });
-
-            }
-
+            } // data
 
         }); // ajax
 
