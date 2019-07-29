@@ -29,7 +29,7 @@ $(document).ready(function() {
 
     }); // on favorite icon click
 
-    $(".keywordList").on("click", function() {
+    $(".keywordLink").on("click", function() {
 
         alert($(this).text().trim);
 
