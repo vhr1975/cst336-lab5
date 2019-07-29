@@ -59,7 +59,7 @@ $(document).ready(function() {
             }, // data
             success: function(rows, status) {
 
-                row.forEach(function (row){
+                rows.forEach(function (row){
 
                     $('#favorites').append(row.imageURL + '<br>');
                     
