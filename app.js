@@ -155,7 +155,8 @@ app.get("/displayFavorites", function (req, res)
 
         }); // query
 
-    }) // connect
+    }) // connect 
+    
 
 }); // displayFavorites
 
