@@ -39,8 +39,11 @@ $(document).ready(function() {
             data: {
                 "keyword" : $(this).text().trim(),
             }, // data
-            
+
             success: function(rows, status) {
+
+                // clear fav list on every keyword click
+                $('#favorites').html('');
 
                 rows.forEach(function (row){
 
