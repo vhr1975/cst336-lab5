@@ -49,3 +49,22 @@ h1{
     padding: 15px;
 
 }
+
+#favHeader{
+
+    background-color: rgba(250, 250, 250, 0.75);
+    color: silver;
+    width: 50%;
+    border-radius: 25px;
+    margin: 0 auto;
+
+}
+
+.keywordLink{
+
+    background-color: rgba(250, 250, 250, 0.75);
+    color: white;
+    font-size: .8em;
+    margin: 7px;
+
+}
